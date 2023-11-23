@@ -10,13 +10,17 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    //MARK: Properties
     private let mainView = MainView()
     private var weatherIconImageView: UIImageView!
     private var cityLabel: UILabel!
     private var temperatureLabel: UILabel!
     private var feelsLikeTemperatureLabel: UILabel!
     private var searchButton: UIButton!
-
+    
+    
+    private var networkWeatherManager = NetworkWeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -25,7 +29,18 @@ class ViewController: UIViewController {
     private func configure() {
         configureView()
         setupViews()
+        networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
     }
+}
+
+extension ViewController {
+    
+}
+
+
+//MARK: setup MainView
+extension ViewController {
+    
     
     private func setupViews() {
         weatherIconImageView = mainView.weatherIcon
@@ -47,7 +62,5 @@ class ViewController: UIViewController {
     @objc func searchPressed() {
         self.presentSearchAlertController(withTitle: "Enter city name", message: nil, style: .alert)
     }
-
-
 }
 

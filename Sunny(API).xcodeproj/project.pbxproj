@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ADAA80F2B0F62A8004C7F89 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */; };
 		1AF22D352B0E053900D37D3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF22D342B0E053900D37D3F /* AppDelegate.swift */; };
 		1AF22D372B0E053900D37D3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF22D362B0E053900D37D3F /* SceneDelegate.swift */; };
 		1AF22D392B0E053900D37D3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF22D382B0E053900D37D3F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		1AF22D312B0E053900D37D3F /* Sunny(API).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunny(API).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF22D342B0E053900D37D3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AF22D362B0E053900D37D3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		1AF22D4C2B0E06D000D37D3F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				1AF22D392B0E053900D37D3F /* ViewController.swift in Sources */,
 				1AF22D512B0E072500D37D3F /* MainView.swift in Sources */,
+				1ADAA80F2B0F62A8004C7F89 /* NetworkWeatherManager.swift in Sources */,
 				1AF22D352B0E053900D37D3F /* AppDelegate.swift in Sources */,
 				1AF22D552B0E223600D37D3F /* ViewController+alertController.swift in Sources */,
 				1AF22D532B0E077100D37D3F /* Resources.swift in Sources */,
