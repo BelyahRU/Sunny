@@ -29,7 +29,14 @@ class ViewController: UIViewController {
     private func configure() {
         configureView()
         setupViews()
+//        networkWeatherManager.fetchCurrentWeather(forCity: "Moscow") { currentWeather in
+//
+//        }
+        networkWeatherManager.onCompletion = { currentWeather in
+            
+        }
         networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
+        
     }
 }
 
@@ -62,6 +69,7 @@ extension ViewController {
     @objc func searchPressed() {
         self.presentSearchAlertController(withTitle: "Enter city name", message: nil, style: .alert) { city in
             self.networkWeatherManager.fetchCurrentWeather(forCity: city)
+            
         }
     }
     

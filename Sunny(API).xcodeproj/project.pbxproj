@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AB34B002B11E57900D17EB7 /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB34AFF2B11E57900D17EB7 /* CurrentWeatherData.swift */; };
+		1AB34B022B11E8BB00D17EB7 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB34B012B11E8BB00D17EB7 /* CurrentWeather.swift */; };
 		1ADAA80F2B0F62A8004C7F89 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */; };
 		1AF22D352B0E053900D37D3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF22D342B0E053900D37D3F /* AppDelegate.swift */; };
 		1AF22D372B0E053900D37D3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF22D362B0E053900D37D3F /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1AB34AFF2B11E57900D17EB7 /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
+		1AB34B012B11E8BB00D17EB7 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		1AF22D312B0E053900D37D3F /* Sunny(API).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunny(API).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF22D342B0E053900D37D3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				1ADAA80E2B0F62A8004C7F89 /* NetworkWeatherManager.swift */,
 				1AB34AFF2B11E57900D17EB7 /* CurrentWeatherData.swift */,
+				1AB34B012B11E8BB00D17EB7 /* CurrentWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				1AF22D392B0E053900D37D3F /* ViewController.swift in Sources */,
 				1AF22D512B0E072500D37D3F /* MainView.swift in Sources */,
 				1ADAA80F2B0F62A8004C7F89 /* NetworkWeatherManager.swift in Sources */,
+				1AB34B022B11E8BB00D17EB7 /* CurrentWeather.swift in Sources */,
 				1AF22D352B0E053900D37D3F /* AppDelegate.swift in Sources */,
 				1AF22D552B0E223600D37D3F /* ViewController+alertController.swift in Sources */,
 				1AF22D532B0E077100D37D3F /* Resources.swift in Sources */,
