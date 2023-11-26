@@ -14,18 +14,36 @@ protocol NetworkWeatherManageDelegate:class {
 
 class NetworkWeatherManager {
     
+    enum RequestType {
+        case cityName(city: String)
+        case coordinate(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+    }
+    
+    func fetchCurrentWeather(forRequestType requestType:RequestType) {
+        var urlString = ""
+        switch requestType {
+        case .cityName(let city):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+            //        performRequest(withURLString: urlString)
+        case .coordinate(let latitude, let longitude):
+            urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)lon=\(longitude)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+            
+        }
+        performRequest(withURLString: urlString)
+    }
+    
     weak var delegate: NetworkWeatherManageDelegate?
     
     
-    public func fetchCurrentWeather(forCity city: String) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
-        performRequest(withURLString: urlString)
-    }
-    
-    public func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)lon=\(longitude)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
-        performRequest(withURLString: urlString)
-    }
+//    public func fetchCurrentWeather(forCity city: String) {
+//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+//        performRequest(withURLString: urlString)
+//    }
+//
+//    public func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+//        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)lon=\(longitude)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+//        performRequest(withURLString: urlString)
+//    }
     
     fileprivate func performRequest(withURLString urlString: String) {
         guard let url = URL(string: urlString) else { return }
