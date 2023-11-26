@@ -6,12 +6,28 @@
 //
 
 import Foundation
-struct NetworkWeatherManager {
+import CoreLocation
+
+protocol NetworkWeatherManageDelegate:class {
+    func updateInterface(_: NetworkWeatherManager, with currentWeather: CurrentWeather)
+}
+
+class NetworkWeatherManager {
     
-    var onCompletion: ((CurrentWeather) -> Void)?
-    //public func fetchCurrentWeather(forCity city: String, completionHandler: @escaping (CurrentWeather)->Void) {
+    weak var delegate: NetworkWeatherManageDelegate?
+    
+    
     public func fetchCurrentWeather(forCity city: String) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Resources.ApiKeys.weatherApiKey)"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+        performRequest(withURLString: urlString)
+    }
+    
+    public func fetchCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)lon=\(longitude)&appid=\(Resources.ApiKeys.weatherApiKey)&units=metric"
+        performRequest(withURLString: urlString)
+    }
+    
+    fileprivate func performRequest(withURLString urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
@@ -19,8 +35,7 @@ struct NetworkWeatherManager {
 //                let dataString = String(data: data, encoding: .utf8)
 //                print(dataString!)
                 if let currentWeather = self.paseJSON(withData: data) {
-//                    completionHandler(currentWeather)
-                    self.onCompletion?(currentWeather)
+                    self.delegate?.updateInterface(self, with: currentWeather)
                 }
             }
         }
@@ -28,9 +43,8 @@ struct NetworkWeatherManager {
         task.resume()
     }
     
-    
     //распаковка данных
-    public func paseJSON(withData data: Data) -> CurrentWeather?{
+    fileprivate func paseJSON(withData data: Data) -> CurrentWeather?{
         let decoder = JSONDecoder()
         do {
             let currentWeatherData = try decoder.decode(CurrentWeatherData.self, from: data)

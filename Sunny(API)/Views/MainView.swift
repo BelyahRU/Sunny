@@ -42,6 +42,7 @@ class MainView: UIView {
     public let weatherIcon: UIImageView = {
         let im = UIImageView(image: UIImage(systemName: "cloud.rain.fill"))
         im.tintColor = UIColor(named: "infoColor")
+        im.contentMode = .scaleAspectFill
         return im
     }()
     
@@ -166,17 +167,12 @@ class MainView: UIView {
             make.edges.equalToSuperview()
         }
         citySearchSV.snp.makeConstraints { make in
-            make.width.equalTo(83)
+            make.width.equalTo(300)
             make.height.equalTo(32)
             make.right.equalToSuperview().inset(16.33)
             make.bottom.equalToSuperview().inset(54)
         }
-        
-        cityLabel.snp.makeConstraints { make in
-            make.width.equalTo(44)
-            make.height.equalTo(31)
-        }
-        
+
         searchButton.snp.makeConstraints { make in
             make.height.width.equalTo(31)
         }
